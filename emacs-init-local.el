@@ -2,9 +2,6 @@
 ;;
 ;;; Code:
 ;;(xclip-mode 1)
-
-(setq org-src-fontify-natively t)
-
 (require 'window-number)
 (window-number-mode)
 
@@ -33,6 +30,13 @@
 (global-set-key (kbd "C-c m p") 'mc/mark-previous-like-this)
 (global-set-key (kbd "C-c m a") 'mc/mark-all-like-this)
 ;; multiple-cursors ends here
+
+;; org-mode starts here
+(setq org-src-fontify-natively t)
+
+(require 'org-bullets)
+(add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
+;; org-mode ends here
 
 (provide 'init-local)
 ;;; init-local.el ends here
