@@ -25,5 +25,14 @@
 (setq interprogram-paste-function 'copy-from-osx)
 ;; copy/paste ends here
 
+;; multiple-cursors starts here
+(require 'multiple-cursors)
+
+(global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
+(global-set-key (kbd "C-c m n") 'mc/mark-next-like-this)
+(global-set-key (kbd "C-c m p") 'mc/mark-previous-like-this)
+(global-set-key (kbd "C-c m a") 'mc/mark-all-like-this)
+;; multiple-cursors ends here
+
 (provide 'init-local)
 ;;; init-local.el ends here
