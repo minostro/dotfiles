@@ -2,8 +2,10 @@
 ;;
 ;;; Code:
 ;;(xclip-mode 1)
-(require 'window-number)
-(window-number-mode)
+
+;; window numbering starts here
+(window-numbering-mode)
+;; window numbering ends here
 
 ;; copy/paste starts here
 ;; shamelessly copy from http://iancmacdonald.com/macos/emacs/tmux/2017/01/15/macOS-tmux-emacs-copy-past.html
