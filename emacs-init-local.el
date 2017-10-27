@@ -39,10 +39,31 @@
 ;; org-mode starts here
 (setq org-src-fontify-natively t)
 
+;;; Org Bullets settings
 (require 'org-bullets)
 (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
 
+;;; Agenda settings
 (setq org-agenda-files (list "~/org/gcal.org"))
+
+;;; To-do settings
+(setq org-todo-keywords
+      (quote ((sequence "TODO(t)" "NEXT(n)" "|" "DONE(d!/!)")
+              (sequence "PROJECT(p)" "|" "DONE(d!/!)" "CANCELLED(c@/!)")
+              (sequence "WAITING(w@/!)" "DELEGATED(e!)" "HOLD(h)" "|" "CANCELLED(c@/!)")))
+      org-todo-repeat-to-state "NEXT")
+
+(setq org-todo-keyword-faces
+      (quote (("NEXT" :inherit warning)
+              ("PROJECT" :inherit font-lock-string-face))))
+
+;;; Capturing settings
+(setq org-capture-templates
+      `(("t" "todo" entry (file "")  ; "" => org-default-notes-file
+         "* NEXT %?\n%U\n" :clock-resume t)
+        ("n" "note" entry (file "")
+         "* %? :NOTE:\n%U\n%a\n" :clock-resume t)
+        ))
 ;; org-mode ends here
 
 ;; set-faces starts here
