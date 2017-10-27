@@ -45,5 +45,10 @@
 (setq org-agenda-files (list "~/org/gcal.org"))
 ;; org-mode ends here
 
+;; set-faces starts here
+(custom-set-faces
+ '(default ((t (:inherit nil :stipple nil :background "#2d2d2d" :foreground "#cccccc" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 150 :width normal :foundry "nil" :family "Monaco")))))
+;; set-faces ends here
+
 (provide 'init-local)
 ;;; init-local.el ends here
