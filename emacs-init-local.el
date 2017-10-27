@@ -32,16 +32,18 @@
 (global-set-key (kbd "C-c m a") 'mc/mark-all-like-this)
 ;; multiple-cursors ends here
 
+;; org-gcal starts here
+(require 'init-gcal)
+;; org-gcal ends here
+
 ;; org-mode starts here
 (setq org-src-fontify-natively t)
 
 (require 'org-bullets)
 (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
-;; org-mode ends here
 
-;; org-gcal starts here
-(load-file  "~/.emacs.d/lisp/init-gcal.el")
-;; org-gcal ends here
+(setq org-agenda-files (list "~/org/gcal.org"))
+;; org-mode ends here
 
 (provide 'init-local)
 ;;; init-local.el ends here
