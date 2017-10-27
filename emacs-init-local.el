@@ -1,7 +1,6 @@
 ;;; init-local.el --- My Personal Local Configurations
 ;;
 ;;; Code:
-;;(xclip-mode 1)
 
 ;; window numbering starts here
 (window-numbering-mode)
@@ -39,6 +38,10 @@
 (require 'org-bullets)
 (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
 ;; org-mode ends here
+
+;; org-gcal starts here
+(load-file  "~/.emacs.d/lisp/init-gcal.el")
+;; org-gcal ends here
 
 (provide 'init-local)
 ;;; init-local.el ends here
