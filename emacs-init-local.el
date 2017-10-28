@@ -6,6 +6,10 @@
 (window-numbering-mode)
 ;; window numbering ends here
 
+;; delete section starts here
+(delete-selection-mode 1) ;;delete selected region with backspace key
+;; delete section ends here
+
 ;; copy/paste starts here
 ;; shamelessly copy from http://iancmacdonald.com/macos/emacs/tmux/2017/01/15/macOS-tmux-emacs-copy-past.html
 (defun copy-from-osx ()
