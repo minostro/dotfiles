@@ -37,7 +37,7 @@
 ;; multiple-cursors ends here
 
 ;; org-gcal starts here
-(require 'init-gcal)
+;;(require 'init-gcal)
 ;; org-gcal ends here
 
 ;; org-mode starts here
@@ -48,7 +48,9 @@
 (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
 
 ;;; Agenda settings
-(setq org-agenda-files (list "~/org/gcal.org"))
+(setq org-agenda-files (list
+                        "~/org/my-life.org"
+                        "~/org/triage.org"))
 
 ;;; To-do settings
 (setq org-todo-keywords
@@ -63,17 +65,46 @@
 
 ;;; Capturing settings
 (setq org-capture-templates
-      `(("t" "todo" entry (file "")  ; "" => org-default-notes-file
-         "* NEXT %?\n%U\n" :clock-resume t)
-        ("n" "note" entry (file "")
-         "* %? :NOTE:\n%U\n%a\n" :clock-resume t)
-        ))
-;; org-mode ends here
+    (quote
+     (("t" "todo" entry
+       (file+headline "~/org/triage.org" "Todos")
+       "* NEXT %?
+%U
+" :clock-resume t)
+      ("n" "note" entry
+       (file+headline "~/org/triage.org" "Notes")
+       "* %? :NOTE:
+%U
+
+" :clock-resume t))))
 
 ;; set-faces starts here
 (custom-set-faces
  '(default ((t (:inherit nil :stipple nil :background "#2d2d2d" :foreground "#cccccc" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 150 :width normal :foundry "nil" :family "Monaco")))))
 ;; set-faces ends here
+
+;; java starts here
+(require 'eclim)
+(setq eclimd-autostart nil)
+(add-hook 'java-mode-hook (lambda () (eclim-mode t)))
+
+;; Dirs configuration
+(custom-set-variables
+ '(eclim-eclipse-dirs '("/Applications/Eclipse.app/Contents/Eclipse"))
+ '(eclim-executable "/Applications/Eclipse.app/Contents/Eclipse/eclim"))
+
+;; Displaying compilation errors in the echo area
+(setq help-at-pt-display-when-idle t)
+(setq help-at-pt-timer-delay 0.1)
+(help-at-pt-set-timer)
+
+;; Configuring company mode
+(require 'company)
+(require 'company-emacs-eclim)
+(company-emacs-eclim-setup)
+(global-company-mode t)
+;;(company-emacs-eclim-ignore-case t)
+;; java ends here
 
 (provide 'init-local)
 ;;; init-local.el ends here
