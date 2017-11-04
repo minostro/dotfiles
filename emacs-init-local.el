@@ -106,5 +106,8 @@
 ;;(company-emacs-eclim-ignore-case t)
 ;; java ends here
 
+;; Adding utf-8 alias
+(define-coding-system-alias 'UTF-8 'utf-8)
+
 (provide 'init-local)
 ;;; init-local.el ends here
