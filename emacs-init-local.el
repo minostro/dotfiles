@@ -73,7 +73,7 @@
       (quote
        (("t" "todo" entry
          (file+headline "~/org/triage.org" "TODOS")
-         "* NEXT %?
+         "* TODO %?
 :PROPERTIES:
 :captured: %U
 :END:
