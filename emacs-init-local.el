@@ -52,6 +52,11 @@
                         "~/org/my-life.org"
                         "~/org/triage.org"))
 
+;;; Refile settings
+(setq org-refile-targets
+      '((nil :maxlevel . 3)
+        (org-agenda-files :maxlevel . 3)))
+
 ;;; To-do settings
 (setq org-todo-keywords
       (quote ((sequence "TODO(t)" "NEXT(n)" "|" "DONE(d!/!)")
@@ -65,18 +70,22 @@
 
 ;;; Capturing settings
 (setq org-capture-templates
-    (quote
-     (("t" "todo" entry
-       (file+headline "~/org/triage.org" "Todos")
-       "* NEXT %?
-%U
+      (quote
+       (("t" "todo" entry
+         (file+headline "~/org/triage.org" "TODOS")
+         "* NEXT %?
+:PROPERTIES:
+:captured: %U
+:END:
 " :clock-resume t)
-      ("n" "note" entry
-       (file+headline "~/org/triage.org" "Notes")
-       "* %? :NOTE:
-%U
-
+        ("n" "note" entry
+         (file+headline "~/org/triage.org" "NOTES")
+         "* %? :NOTE:
+:PROPERTIES:
+:captured: %U
+:END:
 " :clock-resume t))))
+;; org-mode ends here
 
 ;; set-faces starts here
 (custom-set-faces
