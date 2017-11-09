@@ -59,15 +59,18 @@
 
 ;;; To-do settings
 (setq org-todo-keywords
-      (quote ((sequence "TODO(t)" "NEXT(n)" "IN PROG(i)" "|" "DONE(d!/!)")
+      (quote ((sequence "TODO(t)" "NEXT(n)" "PROGRESS(p)" "ACCEPTANCE(a)" "|" "DONE(d!/!)")
               (sequence "PROJECT(p)" "|" "DONE(d!/!)" "CANCELLED(c@/!)")
               (sequence "WAITING(w@/!)" "DELEGATED(e!)" "HOLD(h)" "|" "CANCELLED(c@/!)")))
       org-todo-repeat-to-state "NEXT")
 
 (setq org-todo-keyword-faces
       (quote (("NEXT" :inherit warning)
-              ("PROJECT" :inherit font-lock-string-face))))
+              ("PROJECT" :inherit font-lock-string-face)
+              ("PROGRESS" :inherit font-lock-string-face)
+              ("ACCEPTANCE" :inherit font-lock-negation-char-face))))
 
+(setq org-archive-location "~/org/archive.org::")
 ;;; Capturing settings
 (setq org-capture-templates
       (quote
@@ -120,6 +123,14 @@
 
 ;; Enabling flyspell mode
 (flyspell-mode t)
+
+;; Enabling yafolding mode
+(require 'yafolding)
+(add-hook 'json-mode (lambda () ((yafolding-mode t))))
+(global-set-key (kbd "C-c j t") 'yafolding-toggle-element)
+(global-set-key (kbd "C-c j s") 'yafolding-show-element)
+(global-set-key (kbd "C-c j a t") 'yafolding-toggle-all)
+(global-set-key (kbd "C-c j a s") 'yafolding-show-all)
 
 (provide 'init-local)
 ;;; init-local.el ends here
