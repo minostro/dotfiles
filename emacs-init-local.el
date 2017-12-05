@@ -59,15 +59,15 @@
 
 ;;; To-do settings
 (setq org-todo-keywords
-      (quote ((sequence "TODO(t/!)" "NEXT(n/!)" "PROGRESS(p/!)" "WAITING(w@/!)" "|" "DONE(d!/!)" "CANCELLED(c@/!)")
-              (sequence "PROJECT(p)" "|" "DONE(d!/!)" "CANCELLED(c@/!)")))
+      (quote ((sequence "TODO(t/!)" "NEXT(n/!)" "PROGRESS(p/!)" "WAITING(w@/!)" "ON HOLD(h@/!)" "|" "DONE(d!/!)" "CANCELLED(c@/!)")
+              (sequence "PROJECT(j)" "|" "DONE(d!/!)" "CANCELLED(c@/!)")))
       org-todo-repeat-to-state "NEXT")
 
 (setq org-todo-keyword-faces
       (quote (("NEXT" :inherit warning)
               ("PROJECT" :inherit font-lock-string-face)
               ("PROGRESS" :inherit font-lock-string-face)
-              ("ACCEPTANCE" :inherit font-lock-negation-char-face))))
+              ("WAITING" :inherit font-lock-negation-char-face))))
 
 (setq org-archive-location "~/org/archive.org::")
 ;;; Capturing settings
@@ -77,14 +77,14 @@
          (file+headline "~/org/triage.org" "TODOS")
          "* TODO %?
 :PROPERTIES:
-:captured: %U
+:CAPTURED: %U
 :END:
 " :clock-resume t)
         ("n" "note" entry
-         (file+headline "~/org/triage.org" "NOTES")
+         (file+headline "~/org/my-life.org" "NOTES")
          "* %? :NOTE:
 :PROPERTIES:
-:captured: %U
+:CAPTURED: %U
 :END:
 " :clock-resume t))))
 ;; org-mode ends here
