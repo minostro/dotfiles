@@ -1,0 +1,6 @@
+[bspace]>[lctrl]
+[delete]>[rwin]
+[rctrl]>[rwin]
+[lalt]>[delete]
+[lctrl]>[bspace]
+[rwin]>[rctrl]
