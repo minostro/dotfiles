@@ -3,7 +3,7 @@
 ;;; Code:
 
 ;; window numbering starts here
-(window-numbering-mode)
+;;(window-numbering-mode)
 ;; window numbering ends here
 
 ;; delete section starts here
