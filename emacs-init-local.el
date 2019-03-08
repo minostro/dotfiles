@@ -77,14 +77,26 @@
          (file+headline "~/org/triage.org" "TODOS")
          "* TODO %?
 :PROPERTIES:
-:CAPTURED: %U
+:CAPTURED_AT: %U
+:END:
+" :clock-resume t)
+        ("c" "code todo" entry
+         (file+headline "~/org/triage.org" "TODOS")
+         "* TODO %?
+:PROPERTIES:
+:REFERENCE: [[file://%F::%(with-current-buffer (org-capture-get :original-buffer) (number-to-string (line-number-at-pos)))][code at: %f]]
+:CAPTURED_AT: %U
+:CODE:
+#+BEGIN_SRC ruby
+%i
+#+END_SRC
 :END:
 " :clock-resume t)
         ("n" "note" entry
          (file+headline "~/org/my-life.org" "NOTES")
          "* %? :NOTE:
 :PROPERTIES:
-:CAPTURED: %U
+:CAPTURED AT: %U
 :END:
 " :clock-resume t))))
 ;; org-mode ends here
