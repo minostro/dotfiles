@@ -1,4 +1,4 @@
-;;; init-local.el --- My Personal Local Configurations
+;;; init-local.el --- minostro Local Configurations
 ;;
 ;;; Code:
 
@@ -99,6 +99,11 @@
 :CAPTURED AT: %U
 :END:
 " :clock-resume t))))
+
+;;; MobileOrg starts here
+(setq org-mobile-inbox-for-pull "~/org/mobile-triage.org")
+(setq org-mobile-directory "~/Dropbox/Apps/MobileOrg")
+
 ;; org-mode ends here
 
 ;; set-faces starts here
