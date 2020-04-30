@@ -1,5 +1,5 @@
 [bspace]>[lctrl]
-[delete]>[rwin]
+[delete]>[lalt]
 [rctrl]>[rwin]
 [lalt]>[delete]
 [lctrl]>[bspace]
