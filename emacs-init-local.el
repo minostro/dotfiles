@@ -34,6 +34,7 @@
 (global-set-key (kbd "C-c m n") 'mc/mark-next-like-this)
 (global-set-key (kbd "C-c m p") 'mc/mark-previous-like-this)
 (global-set-key (kbd "C-c m a") 'mc/mark-all-like-this)
+(define-key mc/keymap (kbd "<return>") nil)
 ;; multiple-cursors ends here
 
 ;; org-gcal starts here
@@ -48,14 +49,15 @@
 (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
 
 ;;; Agenda settings
-(setq org-agenda-files (list
-                        "~/org/my-life.org"
-                        "~/org/triage.org"))
+(custom-set-variables
+ '(org-agenda-files (list
+                     "~/org/my-life.org"
+                     "~/org/triage.org")))
 
 ;;; Refile settings
-(setq org-refile-targets
-      '((nil :maxlevel . 3)
-        (org-agenda-files :maxlevel . 3)))
+(custom-set-variables
+ '(org-refile-targets '((nil :maxlevel . 3)
+                        (org-agenda-files :maxlevel . 3))))
 
 ;;; To-do settings
 (setq org-todo-keywords
