@@ -10,23 +10,6 @@
 (delete-selection-mode 1) ;;delete selected region with backspace key
 ;; delete section ends here
 
-;; copy/paste starts here
-;; shamelessly copy from http://iancmacdonald.com/macos/emacs/tmux/2017/01/15/macOS-tmux-emacs-copy-past.html
-(defun copy-from-osx ()
-  "Use OSX clipboard to paste."
-  (shell-command-to-string "reattach-to-user-namespace pbpaste"))
-
-(defun paste-to-osx (text &optional push)
-  "Add kill ring entries (TEXT) to OSX clipboard.  PUSH."
-  (let ((process-connection-type nil))
-    (let ((proc (start-process "pbcopy" "*Messages*" "reattach-to-user-namespace" "pbcopy")))
-      (process-send-string proc text)
-      (process-send-eof proc))))
-
-(setq interprogram-cut-function 'paste-to-osx)
-(setq interprogram-paste-function 'copy-from-osx)
-;; copy/paste ends here
-
 ;; multiple-cursors starts here
 (require 'multiple-cursors)
 
@@ -108,10 +91,26 @@
 
 ;; org-mode ends here
 
-;; set-faces starts here
+;; set-faces and theme starts here
+(add-hook 'after-init-hook (lambda () (load-theme 'sanityinc-tomorrow-night)))
 (custom-set-faces
- '(default ((t (:inherit nil :stipple nil :background "#2d2d2d" :foreground "#cccccc" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 150 :width normal :foundry "nil" :family "Monaco")))))
-;; set-faces ends here
+ '(default ((t (
+                :inherit nil
+                :stipple nil
+                :background "#2d2d2d"
+                :foreground "#cccccc"
+                :inverse-video nil
+                :box nil
+                :strike-through nil
+                :overline nil
+                :underline nil
+                :slant normal
+                :weight normal
+                :height 160
+                :width normal
+                :foundry "nil"
+                :family "Monaco")))))
+;; set-faces and theme ends here
 
 ;; java starts here
 (require 'eclim)
@@ -121,7 +120,8 @@
 ;; Dirs configuration
 (custom-set-variables
  '(eclim-eclipse-dirs '("/Applications/Eclipse.app/Contents/Eclipse"))
- '(eclim-executable "/Applications/Eclipse.app/Contents/Eclipse/eclim"))
+ '(eclim-executable "/Applications/Eclipse.app/Contents/Eclipse/eclim")
+ )
 
 ;; Displaying compilation errors in the echo area
 (setq help-at-pt-display-when-idle t)
